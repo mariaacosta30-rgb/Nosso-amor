@@ -1,59 +1,47 @@
 const cartas = [
-
 {
 titulo:"O início de tudo",
-texto:"Às vezes eu paro para pensar em como a minha vida era antes de você e percebo o quanto ela mudou. Você trouxe cor para dias comuns e transformou momentos simples em memórias especiais."
+texto:"Desde que você entrou na minha vida, os dias ficaram mais leves e felizes. Você transformou momentos simples em lembranças inesquecíveis."
 },
-
 {
 titulo:"Meu lugar favorito",
 texto:"Meu lugar favorito não é uma cidade ou uma praia. Meu lugar favorito é qualquer lugar onde você esteja."
 },
-
 {
 titulo:"Orgulho de você",
-texto:"Tenho muito orgulho da pessoa que você é e da pessoa incrível que está se tornando."
+texto:"Tenho orgulho da sua dedicação, da sua força e da pessoa incrível que você é."
 },
-
 {
 titulo:"Obrigada por existir",
-texto:"Obrigada pelos abraços, pelas risadas, pelo carinho e por tornar minha vida mais feliz."
+texto:"Obrigada por todos os abraços, conversas e momentos compartilhados."
 },
-
 {
 titulo:"Nosso futuro",
-texto:"Quando penso no futuro, imagino nós dois realizando sonhos e construindo uma linda história."
+texto:"Quando penso no futuro, imagino você em todos os meus planos."
 },
-
 {
 titulo:"As pequenas coisas",
-texto:"São os pequenos momentos que mais guardo: nossas conversas, brincadeiras e olhares."
+texto:"As pequenas coisas que você faz são exatamente as que mais guardo no coração."
 },
-
 {
 titulo:"Você me faz melhor",
-texto:"Com você aprendi mais sobre amor, parceria e companheirismo."
+texto:"Você me inspira a crescer e a ser uma pessoa melhor todos os dias."
 },
-
 {
 titulo:"Meu porto seguro",
-texto:"Seu abraço tem o poder de transformar qualquer dia difícil em algo mais leve."
+texto:"Seu abraço tem o poder de trazer paz até nos dias mais difíceis."
 },
-
 {
 titulo:"Meu melhor amigo",
-texto:"Além de namorado, você é meu melhor amigo e minha pessoa favorita."
+texto:"Além de namorado, você é meu melhor amigo e meu maior parceiro."
 },
-
 {
 titulo:"Para sempre você",
-texto:"Se eu pudesse escolher você mil vezes, escolheria mil e uma."
+texto:"Se eu pudesse escolher novamente, escolheria você todas as vezes."
 }
-
 ];
 
 const motivos = [
-
 "Seu sorriso",
 "Seu abraço",
 "Sua risada",
@@ -106,47 +94,42 @@ const motivos = [
 "Porque você é você"
 ];
 
-function mostrarCarta(){
+const cartasContainer = document.getElementById("cartas-container");
 
-    const carta =
-    cartas[Math.floor(Math.random() * cartas.length)];
-
-    document.getElementById("resultado").innerHTML = `
+cartas.forEach(carta => {
+    cartasContainer.innerHTML += `
         <div class="card">
-            <h2>💌 ${carta.titulo}</h2>
+            <h3>${carta.titulo}</h3>
             <p>${carta.texto}</p>
         </div>
     `;
-}
+});
 
-function mostrarMotivo(){
+const motivosContainer = document.getElementById("motivos-container");
 
-    const motivo =
-    motivos[Math.floor(Math.random() * motivos.length)];
-
-    document.getElementById("resultado").innerHTML = `
+motivos.forEach((motivo, index) => {
+    motivosContainer.innerHTML += `
         <div class="card">
-            <h2>❤️ Motivo Para Amar Você</h2>
+            <h3>Motivo ${index + 1}</h3>
             <p>${motivo}</p>
         </div>
     `;
-}
+});
 
-/* ALTERE PARA A DATA DE VOCÊS */
-const dataNamoro = new Date("2024-01-01");
+const dataNamoro = new Date("2026-04-09");
 
-function atualizarContador(){
+function atualizarContador() {
 
     const hoje = new Date();
 
-    const diferenca =
-    hoje.getTime() - dataNamoro.getTime();
+    const diferenca = hoje - dataNamoro;
 
-    const dias =
-    Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const dias = Math.floor(
+        diferenca / (1000 * 60 * 60 * 24)
+    );
 
-    document.getElementById("contador").innerHTML =
-    `❤️ Juntos há ${dias} dias ❤️`;
+    document.getElementById("contador").textContent =
+        `Juntos há ${dias} dias`;
 }
 
 atualizarContador();
